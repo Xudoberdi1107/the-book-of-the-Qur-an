@@ -31,7 +31,6 @@
   height: auto;
   display: flex;
   border-radius: 20px 20px 10px 10px;
-  padding: 15px;
   background-color: white;
   display: flex;
   align-items: center;
@@ -57,9 +56,16 @@
   display: flex;
   align-items: start;
   justify-content: start;
+  flex-wrap: wrap;
   gap: 20px;
   width: 100%;
   height: 100%;
+}
+.lenguge {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 5px;
 }
 .select {
   width: 100px;

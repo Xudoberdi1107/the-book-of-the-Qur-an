@@ -4,9 +4,10 @@ import Search from "../../Search";
 type navbarProps = {
   setings: boolean;
   setSetings: any;
+  setSearch: any;
 };
 function Navbar(props: navbarProps) {
-  const { setSetings, setings } = props;
+  const { setSetings, setings, setSearch } = props;
   return (
     <nav className="navbar">
       <div className="logo_search">
@@ -16,7 +17,7 @@ function Navbar(props: navbarProps) {
           </Link>
         </div>
         <div className="search">
-          <Search />
+          <Search setSearch={setSearch} />
         </div>
       </div>
 

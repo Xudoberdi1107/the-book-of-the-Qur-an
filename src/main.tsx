@@ -12,13 +12,6 @@ const queryClient = new QueryClient({
   },
 });
 
-(function StoreLenguge() {
-  const lenguage = localStorage.getItem("lenguage");
-  if (!lenguage) {
-    localStorage.setItem("lenguage", JSON.stringify("uz"));
-  }
-})();
-
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>

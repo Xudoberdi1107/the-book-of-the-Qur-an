@@ -3,16 +3,21 @@ import { Route, Routes } from "react-router-dom";
 import { Error, Home, Namoz_vaqti, Oyahs, Surah } from "..";
 import { Navbar, Sidebar } from "../../components/Loyout";
 import Playr from "../../components/Playr";
-import Gear from "../../components/Gear";
 import { useState } from "react";
+import Gear from "../../components/Gear";
 
 function Pages_root() {
   const [setings, setSetings] = useState<boolean>(false);
   const [leng, setLeng] = useState("ar.muyassar");
+  const [search, setSearch] = useState<string>("");
   return (
     <div className={pr.pages_root}>
       <div className={pr.navbar}>
-        <Navbar setings={setings} setSetings={setSetings} />
+        <Navbar
+          setings={setings}
+          setSetings={setSetings}
+          setSearch={setSearch}
+        />
       </div>
       <div className={setings ? pr.gear_option : pr.gear}>
         <Gear
@@ -31,7 +36,7 @@ function Pages_root() {
           <div className={pr.route}>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/surah" element={<Surah />} />
+              <Route path="/surah" element={<Surah search={search} />} />
               <Route path="/namoz_vaqti" element={<Namoz_vaqti />} />
               <Route
                 path="/surah/oyahs/:numder"

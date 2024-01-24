@@ -22,7 +22,7 @@ function Oyahs(props: navbarProps) {
   }, [leng]);
 
   const myData = data?.data?.data;
-  console.log(myData);
+  // console.log(myData);
 
   if (isLoading) return <Loading />;
 

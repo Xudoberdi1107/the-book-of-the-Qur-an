@@ -37,16 +37,19 @@ function Gear(props: navbarProps) {
           <button onClick={() => setSetings(!setings)}>X</button>
         </div>
         <div className={g.setings}>
-          <select
-            className={g.select}
-            defaultValue={lengOp}
-            onChange={(e) => onHendle(e.target.value)}
-          >
-            <option value="ar.muyassar">AR</option>
-            <option value="uz.sodik">UZ</option>
-            <option value="en.ahmedali">EN</option>
-            <option value="ru.kuliev">RU</option>
-          </select>
+          <div className={g.lenguge}>
+            <h3>Lenguge:</h3>
+            <select
+              className={g.select}
+              defaultValue={lengOp}
+              onChange={(e) => onHendle(e.target.value)}
+            >
+              <option value="ar.muyassar">AR</option>
+              <option value="uz.sodik">UZ</option>
+              <option value="en.ahmedali">EN</option>
+              <option value="ru.kuliev">RU</option>
+            </select>
+          </div>
         </div>
       </div>
       <div className={g.close} onClick={() => setSetings(!setings)}></div>
