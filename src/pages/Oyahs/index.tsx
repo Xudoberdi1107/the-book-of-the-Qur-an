@@ -1,20 +1,49 @@
 import { useParams } from "react-router-dom";
 import oy from "./style.module.scss";
 import { useGetData } from "../../Hooks";
-
-function Oyahs() {
+import OyahsCard from "./components/OyahsCard";
+import Loading from "../../components/Loading/Loading";
+import { useEffect } from "react";
+type navbarProps = {
+  leng: string;
+  setLeng: any;
+};
+function Oyahs(props: navbarProps) {
+  const { leng } = props;
   const { numder } = useParams();
-  const { data, isLoading } = useGetData(["oyahs"], `/surah/${numder}`, {});
+
+  const { data, isLoading, refetch } = useGetData(
+    ["oyahs"],
+    `/surah/${numder}/${leng}`,
+    {}
+  );
+  useEffect(() => {
+    refetch();
+  }, [leng]);
+
   const myData = data?.data?.data;
   console.log(myData);
 
-  if (isLoading) {
-    return <h1>Loding...</h1>;
-  }
+  if (isLoading) return <Loading />;
+
   return (
     <div className={oy.oyahs}>
       <div className={oy.header}>
-        <h1>{myData.englishName}</h1>
+        <div className={oy.header_name}>
+          <h2>{myData?.englishName}</h2>
+          <h3>{myData.name}</h3>
+        </div>
+        <div className={oy.header_number}>
+          <h3>Surah: {myData?.number}</h3>
+          <h3 className={oy.h31}>Oyatlar: {myData?.numberOfAyahs}</h3>
+        </div>
+      </div>
+      <div className={oy.body}>
+        {myData?.ayahs?.map((e: any, i: number) => {
+          return (
+            <OyahsCard key={i} numberInSurah={e.numberInSurah} text={e.text} />
+          );
+        })}
       </div>
     </div>
   );

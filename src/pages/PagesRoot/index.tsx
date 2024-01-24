@@ -1,16 +1,28 @@
 import pr from "./style.module.scss";
 import { Route, Routes } from "react-router-dom";
-import { Error, Gear, Home, Namoz_vaqti, Oyahs, Surah } from "..";
+import { Error, Home, Namoz_vaqti, Oyahs, Surah } from "..";
 import { Navbar, Sidebar } from "../../components/Loyout";
-import { Playr } from "../../components";
-// import Example from "../../Hooks";
+import Playr from "../../components/Playr";
+import Gear from "../../components/Gear";
+import { useState } from "react";
 
 function Pages_root() {
+  const [setings, setSetings] = useState<boolean>(false);
+  const [leng, setLeng] = useState("ar.muyassar");
   return (
     <div className={pr.pages_root}>
       <div className={pr.navbar}>
-        <Navbar />
+        <Navbar setings={setings} setSetings={setSetings} />
       </div>
+      <div className={setings ? pr.gear_option : pr.gear}>
+        <Gear
+          setings={setings}
+          setSetings={setSetings}
+          leng={leng}
+          setLeng={setLeng}
+        />
+      </div>
+
       <div className={pr.show}>
         <div className={pr.sidebar}>
           <Sidebar />
@@ -20,9 +32,11 @@ function Pages_root() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/surah" element={<Surah />} />
-              <Route path="/gear" element={<Gear />} />
               <Route path="/namoz_vaqti" element={<Namoz_vaqti />} />
-              <Route path="/surah/oyahs/:numder" element={<Oyahs />} />
+              <Route
+                path="/surah/oyahs/:numder"
+                element={<Oyahs leng={leng} setLeng={setLeng} />}
+              />
               <Route path="*" element={<Error />} />
             </Routes>
           </div>

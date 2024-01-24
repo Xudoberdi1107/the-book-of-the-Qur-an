@@ -23,8 +23,7 @@
     font-size: 1.5rem;
   }
   h2 {
-    width: 105px;
-    height: 30px;
+    width: 125px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,6 +31,7 @@
     gap: 5px;
     color: white;
     background-color: #23662f;
+    padding: 5px;
     span {
       font-size: 1rem;
       color: white;

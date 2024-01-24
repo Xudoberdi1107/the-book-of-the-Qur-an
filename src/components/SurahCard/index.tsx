@@ -22,8 +22,8 @@ const SurahCard: React.FC<props> = ({
           <h4>{number}</h4>
         </span>
         <h2>
+          <span>Ayatlar: </span>
           {numberOfAyahs}
-          <span>: Ayat </span>
         </h2>
       </div>
       <div className={styles.name}>

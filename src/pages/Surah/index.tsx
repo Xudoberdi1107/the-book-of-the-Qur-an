@@ -1,5 +1,5 @@
-import { useParams } from "react-router-dom";
 import { useGetData } from "../../Hooks";
+import Loading from "../../components/Loading/Loading";
 import SurahCard from "../../components/SurahCard";
 import type_bir from "../../types";
 import s from "./style.module.scss";
@@ -9,7 +9,7 @@ function Surah() {
   let myData = data?.data?.data;
 
   if (isLoading) {
-    return <h1>loding...</h1>;
+    return <Loading />;
   }
 
   if (Array.isArray(myData)) {

@@ -1,14 +1,20 @@
-import './App.css'
-import { Pages_root } from './pages'
+import { createContext, useState } from "react";
+import "./App.css";
+import { Pages_root } from "./pages";
+
+const LenguageContext = createContext<any>(localStorage.getItem("lenguage"));
 function App() {
+  const [leng, setLeng] = useState(localStorage.getItem("lenguage"));
+  const lengGetSet = {
+    leng,
+    setLeng,
+  };
 
   return (
-    <div>
-
-      <Pages_root/>
-      
-    </div>
-  )
+    <LenguageContext.Provider value={lengGetSet}>
+      <Pages_root />
+    </LenguageContext.Provider>
+  );
 }
 
-export default App
+export { App, LenguageContext };
