@@ -2,13 +2,17 @@ import oc from "./style.module.scss";
 type OyahsCardprops = {
   numberInSurah: number;
   text: string;
+  textAlign: string;
 };
 function OyahsCard(props: OyahsCardprops) {
-  const { numberInSurah, text } = props;
+  const { numberInSurah, text, textAlign } = props;
   return (
     <div className={oc.card}>
-      <h2>{numberInSurah}</h2>
-      <h3>{text}</h3>
+      <div className={oc.text}>
+        <h2>{numberInSurah}</h2>
+        <h3 className={oc[textAlign]}>{text}</h3>
+      </div>
+      <span></span>
     </div>
   );
 }

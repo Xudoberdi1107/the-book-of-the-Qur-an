@@ -2,11 +2,18 @@
   display: flex;
   align-items: start;
   justify-content: start;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 30px;
   background-color: white;
   border-radius: 20px;
   width: 100%;
   padding: 20px;
+  .text {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    gap: 10px;
+  }
   h2 {
     background-color: #23662f;
     border-radius: 10px;
@@ -17,8 +24,25 @@
     color: white;
     padding: 4px;
   }
-  h3 {
+  span {
+    display: flex;
+    height: 2px;
+    border-radius: 100%;
+    background: linear-gradient(
+      270deg,
+      rgba(35, 102, 47, 0.051) 0%,
+      rgba(35, 102, 47, 0.9) 52.08%,
+      rgba(35, 102, 47, 0.051) 100%
+    );
     width: 100%;
-    text-align: end;
   }
+}
+
+.end {
+  width: 100%;
+  text-align: end;
+}
+.start {
+  width: 100%;
+  text-align: start;
 }

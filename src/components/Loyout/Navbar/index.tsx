@@ -16,9 +16,7 @@ function Navbar(props: navbarProps) {
             <i className="fa-solid fa-book-quran"></i>
           </Link>
         </div>
-        <div className="search">
-          <Search setSearch={setSearch} />
-        </div>
+        <div className="search">{/* <Search setSearch={setSearch} /> */}</div>
       </div>
 
       <div className="gear">

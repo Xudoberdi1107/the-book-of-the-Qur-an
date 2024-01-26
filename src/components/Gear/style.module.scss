@@ -64,11 +64,17 @@
 .lenguge {
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: space-between;
   gap: 5px;
+  box-shadow: 0px 12px 14px 0px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  padding: 4px 8px;
+  border-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.12);
+  background: rgba(217, 217, 217, 0.24);
 }
 .select {
-  width: 100px;
+  width: 50px;
   border: 2px solid #23662f;
   border-radius: 4px;
 }

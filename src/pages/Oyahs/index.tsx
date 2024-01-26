@@ -12,7 +12,7 @@ function Oyahs(props: navbarProps) {
   const { leng } = props;
   const { numder } = useParams();
 
-  const { data, isLoading, refetch } = useGetData(
+  let { data, isLoading, refetch } = useGetData(
     ["oyahs"],
     `/surah/${numder}/${leng}`,
     {}
@@ -22,7 +22,6 @@ function Oyahs(props: navbarProps) {
   }, [leng]);
 
   const myData = data?.data?.data;
-  // console.log(myData);
 
   if (isLoading) return <Loading />;
 
@@ -41,7 +40,14 @@ function Oyahs(props: navbarProps) {
       <div className={oy.body}>
         {myData?.ayahs?.map((e: any, i: number) => {
           return (
-            <OyahsCard key={i} numberInSurah={e.numberInSurah} text={e.text} />
+            <OyahsCard
+              key={i}
+              numberInSurah={e.numberInSurah}
+              text={e.text}
+              textAlign={
+                myData?.edition?.identifier === "ar.muyassar" ? "end" : "start"
+              }
+            />
           );
         })}
       </div>

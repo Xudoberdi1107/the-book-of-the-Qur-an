@@ -8,9 +8,12 @@ function Search(props: searchProps) {
     <div className={s.search}>
       <input
         type="search"
+        id="search"
         className={s.input_search}
         onChange={(e) => setSearch(e.target.value)}
+        placeholder="Search..."
       />
+      <label htmlFor="search">P</label>
     </div>
   );
 }

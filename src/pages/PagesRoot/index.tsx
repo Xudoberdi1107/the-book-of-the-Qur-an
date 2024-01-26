@@ -36,7 +36,10 @@ function Pages_root() {
           <div className={pr.route}>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/surah" element={<Surah search={search} />} />
+              <Route
+                path="/surah"
+                element={<Surah search={search} setSearch={setSearch} />}
+              />
               <Route path="/namoz_vaqti" element={<Namoz_vaqti />} />
               <Route
                 path="/surah/oyahs/:numder"
